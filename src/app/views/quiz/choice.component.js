@@ -6,17 +6,26 @@ import { Card, CardActions, CardContent, Button, Typography } from '@material-ui
 const CardActionsStyled = styled(CardActions)`
   justify-content: center;
 `;
+
+const IframeStyled = styled.iframe`
+  width: 280px;
+  height: 157px;
+
+  @media (min-width: 750px) {
+    width: 560px;
+    height: 315px;
+  }
+`;
+
 export const Choice = ({ title, onClick, urlVideo }) => (
   <Card component="article">
-    <iframe
+    <IframeStyled
       title={title}
-      width="560"
-      height="315"
       src={urlVideo}
       frameborder="0"
       allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen
-    ></iframe>
+    ></IframeStyled>
     <CardContent>
       <Typography variant="h3" component="h1" align="center">
         {title}

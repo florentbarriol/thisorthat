@@ -7,22 +7,33 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  width: 80%;
-  height: 100vh;
+  max-width: 98%;
+  min-height: 100vh;
   margin: auto;
 `;
 
 const Choices = styled.div`
   display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 
-  & > *:first-child {
-    margin-right: ${props => props.theme.spacing(2)}px;
+  & > * {
+    margin: ${props => props.theme.spacing(2)}px;
   }
 `;
 
+const Versus = styled.div`
+  display: flex;
+  align-items: center;
+  font-size: 6rem;
+`;
+
+const AnswerTypographyStyled = styled(Typography)`
+  text-align: center;
+`;
+
 const Answer = () => (
-  <Typography component="h1" variant="h2">
+  <AnswerTypographyStyled component="h1" variant="h2">
     <span role="img" aria-label="well done">
       🎉
     </span>{' '}
@@ -30,7 +41,7 @@ const Answer = () => (
     <span role="img" aria-label="well done">
       🎉
     </span>
-  </Typography>
+  </AnswerTypographyStyled>
 );
 
 const choices = [
@@ -51,9 +62,13 @@ export const Quiz = () => {
             Make your choice
           </Typography>
           <Choices>
-            {choices.map(choice => (
-              <Choice {...choice} onClick={handleChoice} />
-            ))}
+            <Choice {...choices[0]} onClick={handleChoice} />
+            <Versus>
+              <span role="img" aria-label="versus">
+                🤔
+              </span>
+            </Versus>
+            <Choice {...choices[1]} onClick={handleChoice} />
           </Choices>
         </>
       )}
