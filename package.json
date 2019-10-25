@@ -17,7 +17,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint .",
-    "lint:fix": "eslint --fix"
+    "lint:fix": "eslint --fix",
+    "relay": "relay-compiler --src ./src --schema ./schema.graphql --extensions js jsx",
+    "relay:watch": "yarn run relay --watch"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -35,7 +37,12 @@
     ]
   },
   "devDependencies": {
+    "babel-plugin-relay": "^7.0.0",
     "eslint-plugin-prettier": "^3.1.1",
-    "prettier": "1.18.2"
+    "graphql": "^14.5.8",
+    "prettier": "1.18.2",
+    "react-relay": "^7.0.0",
+    "relay-compiler": "^7.0.0",
+    "relay-config": "^7.0.0"
   }
 }
