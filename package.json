@@ -7,7 +7,6 @@
     "@material-ui/icons": "^4.5.1",
     "prop-types": "^15.7.2",
     "react": "^16.11.0",
-    "react-app-rewired": "^2.1.4",
     "react-dom": "^16.11.0",
     "react-relay": "^7.0.0",
     "react-scripts": "3.2.0",
@@ -20,16 +19,17 @@
     "eslint-plugin-prettier": "^3.1.1",
     "graphql": "^14.5.8",
     "prettier": "1.18.2",
-    "relay-config": "^7.0.0"
+    "relay-config": "^7.0.0",
+    "get-graphql-schema": "^2.1.2"
   },
   "scripts": {
-    "start": "react-app-rewired start",
-    "build": "react-app-rewired build",
-    "test": "react-app-rewired test",
-    "eject": "react-app-rewired eject",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
     "lint": "eslint .",
     "lint:fix": "eslint --fix",
-    "relay": "get-graphql-schema https://api.graph.cool/relay/v1/ck26lesxa8mm00163xjqhol8a && relay-compiler --src ./src --schema ./src/graphql.schema"
+    "relay": "get-graphql-schema https://api.graph.cool/relay/v1/ck26lesxa8mm00163xjqhol8a > schema.graphql && relay-compiler --src ./src --schema ./schema.graphql --extensions js"
   },
   "eslintConfig": {
     "extends": "react-app"

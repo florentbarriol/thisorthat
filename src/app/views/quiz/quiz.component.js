@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { useLazyLoadQuery } from 'react-relay/hooks';
 import { Choice } from './choice.component';
 import { Typography } from '@material-ui/core';
+import { allQuestionsQuery } from './queries.graphql';
 
 const Container = styled.div`
   display: flex;
@@ -48,15 +50,17 @@ const choices = [
   { title: 'Payback', urlVideo: 'https://www.youtube.com/embed/P6GmT-WJR_k' },
   { title: 'ID2', urlVideo: 'https://www.youtube.com/embed/6DOE4_wt7mo' },
 ];
-
+console.log(allQuestionsQuery);
 export const Quiz = () => {
   const [hasAnswered, setHasAnswered] = useState(false);
   const handleChoice = () => setHasAnswered(true);
+
+  const data = useLazyLoadQuery(allQuestionsQuery);
+  const answers = data && data[0] ? data[0].answers : [];
   return (
     <Container>
-      {hasAnswered ? (
-        <Answer />
-      ) : (
+      {hasAnswered && <Answer />}
+      {!hasAnswered && answers && (
         <>
           <Typography component="h1" variant="h3" align="center" gutterBottom>
             Make your choice
