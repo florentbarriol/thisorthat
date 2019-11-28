@@ -22,6 +22,9 @@
     "relay-config": "^7.0.0",
     "get-graphql-schema": "^2.1.2"
   },
+  "config": {
+    "schema": "https://api.graph.cool/simple/v1/ck26lduxj3woh01500thgstcl"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -29,7 +32,7 @@
     "eject": "react-scripts eject",
     "lint": "eslint .",
     "lint:fix": "eslint --fix",
-    "relay": "get-graphql-schema https://api.graph.cool/relay/v1/ck26lesxa8mm00163xjqhol8a > schema.graphql && relay-compiler --src ./src --schema ./schema.graphql --extensions js"
+    "relay": "get-graphql-schema ${npm_package_config_schema} > schema.graphql && relay-compiler --src ./src --schema ./schema.graphql --extensions=js"
   },
   "eslintConfig": {
     "extends": "react-app"

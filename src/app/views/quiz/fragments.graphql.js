@@ -10,7 +10,7 @@ export const questionFragment = graphql`
   }
 `;
 
-export const answerFragment = graphql`
+export const answerFragment = createFragmentContainer(Answergraphql`
   fragment AnswerFragment on Answer {
     id
     count

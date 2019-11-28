@@ -1,9 +1,9 @@
 import { Environment, Network, RecordSource, Store } from 'relay-runtime';
 
-const API_ENDPOINT = 'https://api.graph.cool/relay/v1/ck26lesxa8mm00163xjqhol8a';
+const { REACT_APP_SCHEMA } = process.env;
 
 function fetchQuery(operation, variables) {
-  return fetch(API_ENDPOINT, {
+  return fetch(REACT_APP_SCHEMA, {
     method: 'POST',
     headers: {
       Accept: 'application/json',
